@@ -1,31 +1,47 @@
 import React, { useState } from "react";
 
 const Form = () => {
-  const [val, setVal] = useState("");
-  const [name,setName] = useState()
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [store, setStore] = useState();
+  const [storeSurname, setStoreSurname] = useState();
 
   const changeHandler = (e) => {
-    setVal(e.target.value);
+    setName(e.target.value);
+  };
+
+  const surnameChangeHandler = (e) => {
+    setSurname(e.target.value);
   };
 
   function changeName(e) {
-    e.preventDefault()
-    setName(val);
+    e.preventDefault();
+    setStore(name);
+    setStoreSurname(surname);
   }
-  console.log(val);
+  console.log(name);
   return (
     <div>
       <form action="">
         <input
           type="text"
-          name=""
-          id=""
-          value={val}
+          value={name}
           placeholder="Enter Name"
           onChange={changeHandler}
         />
-        <p>Hello {name}</p>
-        <button type="submit" onClick={changeName}>Click Me </button>
+        <input
+          type="text"
+          placeholder="Enter surname"
+          value={surname}
+          onChange={surnameChangeHandler}
+        />
+
+        <p>
+          Hello {store} {storeSurname}
+        </p>
+        <button type="submit" onClick={changeName}>
+          Click Me
+        </button>
       </form>
     </div>
   );
